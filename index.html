@@ -1,0 +1,1463 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#f3edff">
+
+<title>A Little World for Su Su San 💜</title>
+
+<style>
+
+:root {
+
+  --purple: #8e72c7;
+
+  --purple-dark: #624895;
+
+  --lavender: #eee6ff;
+
+  --pink: #f9e6f0;
+
+  --white: #fff;
+
+  --text: #453b59;
+
+  --muted: #766c88;
+
+}
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+[hidden] {
+
+  display: none !important;
+
+}
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+
+    Roboto, sans-serif;
+
+  color: var(--text);
+
+  background:
+
+    radial-gradient(circle at 10% 10%, #fbe7f3 0, transparent 30%),
+
+    radial-gradient(circle at 90% 15%, #e3d7ff 0, transparent 35%),
+
+    linear-gradient(145deg, #fbf9ff, #f0eaff, #fff7fc);
+
+  overflow-x: hidden;
+
+}
+
+button, input {
+
+  font: inherit;
+
+}
+
+button {
+
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+button:focus-visible,
+
+input:focus-visible,
+
+a:focus-visible {
+
+  outline: 3px solid #9d82dc;
+
+  outline-offset: 3px;
+
+}
+
+#decor {
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 0;
+
+}
+
+.float-heart {
+
+  position: absolute;
+
+  bottom: -40px;
+
+  opacity: .25;
+
+  animation: floatUp linear infinite;
+
+}
+
+@keyframes floatUp {
+
+  from { transform: translateY(0) rotate(0); opacity: 0; }
+
+  15% { opacity: .3; }
+
+  to { transform: translateY(-115vh) rotate(30deg); opacity: 0; }
+
+}
+
+main {
+
+  position: relative;
+
+  z-index: 1;
+
+  width: min(100% - 28px, 560px);
+
+  margin: 0 auto;
+
+  padding: 26px 0 45px;
+
+}
+
+.topline {
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  margin: 5px 0 17px;
+
+}
+
+.progress-track {
+
+  height: 5px;
+
+  background: #e2d8f3;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  margin-bottom: 23px;
+
+}
+
+#progress {
+
+  width: 0%;
+
+  height: 100%;
+
+  background: linear-gradient(90deg, #aa8be1, #e3a8ce);
+
+  border-radius: inherit;
+
+  transition: width .4s ease;
+
+}
+
+.card {
+
+  background: rgba(255,255,255,.88);
+
+  border: 1px solid rgba(255,255,255,.95);
+
+  border-radius: 27px;
+
+  padding: clamp(23px, 6vw, 36px);
+
+  box-shadow: 0 18px 55px rgba(101,77,150,.11);
+
+  backdrop-filter: blur(12px);
+
+  animation: appear .45s ease both;
+
+}
+
+@keyframes appear {
+
+  from { opacity: 0; transform: translateY(12px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+.eyebrow {
+
+  color: var(--purple);
+
+  text-transform: uppercase;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  font-weight: 800;
+
+  text-align: center;
+
+}
+
+h1, h2 {
+
+  text-align: center;
+
+  line-height: 1.25;
+
+  margin: 13px 0;
+
+  color: var(--purple-dark);
+
+}
+
+h1 {
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(31px, 8vw, 43px);
+
+  font-weight: 500;
+
+}
+
+h2 {
+
+  font-size: clamp(23px, 6vw, 30px);
+
+}
+
+p {
+
+  line-height: 1.8;
+
+}
+
+.center {
+
+  text-align: center;
+
+}
+
+.soft {
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+}
+
+.flower {
+
+  text-align: center;
+
+  font-size: 48px;
+
+  margin: 12px 0;
+
+  animation: gentle 3s ease-in-out infinite;
+
+}
+
+@keyframes gentle {
+
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+
+  50% { transform: translateY(-6px) rotate(3deg); }
+
+}
+
+.field-label {
+
+  display: block;
+
+  margin: 20px 0 8px;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+}
+
+input[type="text"] {
+
+  display: block;
+
+  width: 100%;
+
+  min-height: 52px;
+
+  border: 1.5px solid #d9cbed;
+
+  border-radius: 15px;
+
+  padding: 13px 15px;
+
+  background: #fff;
+
+  color: var(--text);
+
+  font-size: 16px;
+
+}
+
+input[type="text"]::placeholder {
+
+  color: #9b91aa;
+
+}
+
+.btn {
+
+  display: block;
+
+  width: 100%;
+
+  min-height: 50px;
+
+  margin-top: 13px;
+
+  padding: 13px 18px;
+
+  border: 0;
+
+  border-radius: 15px;
+
+  background: linear-gradient(135deg, #987bd2, #b59ce8);
+
+  color: #fff;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow: 0 7px 18px rgba(126,96,181,.18);
+
+  transition: transform .18s ease, filter .18s ease;
+
+}
+
+.btn:hover {
+
+  filter: brightness(1.04);
+
+}
+
+.btn:active {
+
+  transform: scale(.98);
+
+}
+
+.btn.secondary {
+
+  background: #f1eaff;
+
+  color: #61468f;
+
+  box-shadow: none;
+
+  border: 1px solid #e4d8f8;
+
+}
+
+.btn.white {
+
+  background: #fff;
+
+  color: #654c91;
+
+  border: 1px solid #e2d7f2;
+
+  box-shadow: none;
+
+}
+
+.error {
+
+  color: #b04478;
+
+  min-height: 24px;
+
+  font-size: 13px;
+
+  margin: 10px 0 0;
+
+  text-align: center;
+
+}
+
+.screen {
+
+  display: none;
+
+}
+
+.screen.active {
+
+  display: block;
+
+}
+
+.choice {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 15px;
+
+  border: 1.5px solid #e6dcf5;
+
+  border-radius: 15px;
+
+  background: #fff;
+
+  color: var(--text);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  margin: 10px 0;
+
+  line-height: 1.5;
+
+  transition: background .2s, border-color .2s, transform .2s;
+
+}
+
+.choice:hover {
+
+  background: #faf6ff;
+
+  border-color: #b9a4e3;
+
+}
+
+.choice.selected {
+
+  border-color: #9275cb;
+
+  background: #f1eaff;
+
+}
+
+.choice:disabled {
+
+  cursor: default;
+
+  opacity: 1;
+
+}
+
+.feedback {
+
+  background: #f8f3ff;
+
+  border-radius: 14px;
+
+  padding: 13px;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin-top: 14px;
+
+}
+
+.mood-grid {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+}
+
+.mood-grid .choice {
+
+  text-align: center;
+
+  padding: 18px 8px;
+
+  margin: 0;
+
+}
+
+.big-emoji {
+
+  font-size: 48px;
+
+  text-align: center;
+
+  margin: 15px 0;
+
+}
+
+.letter {
+
+  padding: 22px 19px;
+
+  background: linear-gradient(145deg, #fffaff, #f7f1ff);
+
+  border: 1px solid #eee4fb;
+
+  border-radius: 19px;
+
+  line-height: 1.95;
+
+  white-space: normal;
+
+}
+
+.song-card {
+
+  background: #f5efff;
+
+  border-radius: 18px;
+
+  padding: 19px;
+
+  text-align: center;
+
+  margin: 18px 0;
+
+}
+
+.song-title {
+
+  font-family: Georgia, serif;
+
+  font-size: 23px;
+
+  color: var(--purple-dark);
+
+}
+
+.song-link {
+
+  display: block;
+
+  text-decoration: none;
+
+  text-align: center;
+
+  border-radius: 15px;
+
+  background: #fff;
+
+  color: #63468f;
+
+  border: 1px solid #dfd1f5;
+
+  padding: 15px 12px;
+
+  margin-top: 12px;
+
+  font-weight: 750;
+
+}
+
+#hug {
+
+  display: none;
+
+  text-align: center;
+
+  font-size: 22px;
+
+  line-height: 1.8;
+
+  padding: 15px 0;
+
+  animation: appear .5s ease both;
+
+}
+
+#hug.show {
+
+  display: block;
+
+}
+
+.footer {
+
+  text-align: center;
+
+  color: #827591;
+
+  font-size: 12px;
+
+  margin-top: 20px;
+
+}
+
+@media (max-width: 380px) {
+
+  main { width: calc(100% - 20px); padding-top: 18px; }
+
+  .card { padding: 21px 17px; border-radius: 22px; }
+
+  .mood-grid { grid-template-columns: 1fr 1fr; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="decor" aria-hidden="true"></div>
+
+<main>
+
+  <div class="topline">a little world made with care 💜</div>
+
+  <div class="progress-track" aria-label="Website progress">
+
+    <div id="progress"></div>
+
+  </div>
+
+  <!-- STEP 1: NAME GATE -->
+
+  <section class="screen active" id="step1">
+
+    <div class="card">
+
+      <div class="flower">🪻</div>
+
+      <div class="eyebrow">a tiny place just for you</div>
+
+      <h1>A Little World<br>for You</h1>
+
+      <p class="center">
+
+        Some days feel heavier than others.
+
+        So I made a little corner of the internet where you can slow down,
+
+        smile a little, and remember that you matter.
+
+      </p>
+
+      <form id="nameForm">
+
+        <label class="field-label" for="name">First, tell me your name 🌷</label>
+
+        <input
+
+          id="name"
+
+          name="name"
+
+          type="text"
+
+          placeholder="Enter your name here"
+
+          autocomplete="off"
+
+          autocapitalize="words"
+
+          required
+
+        >
+
+        <p id="nameError" class="error" role="alert"></p>
+
+        <button class="btn" type="submit">Open my little world ✨</button>
+
+      </form>
+
+      <p class="center soft">A small surprise is waiting for you.</p>
+
+    </div>
+
+  </section>
+
+  <!-- STEP 2: WELCOME -->
+
+  <section class="screen" id="step2">
+
+    <div class="card">
+
+      <div class="flower">🌷</div>
+
+      <div class="eyebrow">you made it</div>
+
+      <h1>Hi, Su Su San 💜</h1>
+
+      <p class="center">
+
+        Before anything else, take a little breath.
+
+        You don't have to solve everything today, and you don't have to
+
+        pretend you're okay when you're not.
+
+      </p>
+
+      <p class="center">
+
+        This little world isn't here to ask anything from you.
+
+        It's just here to give you a few gentle moments.
+
+      </p>
+
+      <button class="btn" id="startBtn" type="button">
+
+        Let's play a little 🌸
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- STEP 3: QUIZ -->
+
+  <section class="screen" id="step3">
+
+    <div class="card">
+
+      <div class="eyebrow">little game · 1 of 4</div>
+
+      <h2>A Tiny Happiness Quiz ✨</h2>
+
+      <p class="center soft">
+
+        No pressure. Pick the answer that feels right to you.
+
+      </p>
+
+      <p id="questionCount" class="center soft"></p>
+
+      <h2 id="questionText" style="font-size:21px"></h2>
+
+      <div id="answers"></div>
+
+      <div id="quizFeedback" class="feedback" hidden aria-live="polite"></div>
+
+      <button id="quizNext" class="btn" type="button" hidden>
+
+        Next question →
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- STEP 4: MOOD PICKER -->
+
+  <section class="screen" id="step4">
+
+    <div class="card">
+
+      <div class="eyebrow">little game · 2 of 4</div>
+
+      <h2>How is your heart today? 💜</h2>
+
+      <p class="center">
+
+        You don't have to choose the happiest answer.
+
+        Just choose the one that feels closest to you.
+
+      </p>
+
+      <div class="mood-grid" id="moodChoices">
+
+        <button class="choice" type="button" data-mood="tired">🥹<br>A little tired</button>
+
+        <button class="choice" type="button" data-mood="okay">🌷<br>Doing okay</button>
+
+        <button class="choice" type="button" data-mood="sad">🌧️<br>A bit sad</button>
+
+        <button class="choice" type="button" data-mood="happy">☀️<br>Feeling happy</button>
+
+      </div>
+
+      <div id="moodMessage" class="feedback" hidden aria-live="polite"></div>
+
+      <button id="moodNext" class="btn" type="button" hidden>
+
+        Keep going 💗
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- STEP 5: COMPLIMENT -->
+
+  <section class="screen" id="step5">
+
+    <div class="card">
+
+      <div class="eyebrow">little game · 3 of 4</div>
+
+      <h2>A Note You Deserve to Hear 🌸</h2>
+
+      <div class="big-emoji">💌</div>
+
+      <p class="center">
+
+        Tap the envelope to discover a little reminder.
+
+      </p>
+
+      <button class="btn" id="revealCompliment" type="button">
+
+        Open my little note 💌
+
+      </button>
+
+      <div id="compliment" class="feedback" hidden aria-live="polite">
+
+        You don't need to be perfect to be loved, and you don't need to be
+
+        strong every second to be worthy of care. The way you are, even on
+
+        the days when you feel a little lost, is already enough. 🌷
+
+      </div>
+
+      <button class="btn" id="complimentNext" type="button" hidden>
+
+        One more little surprise →
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- STEP 6: SONG -->
+
+  <section class="screen" id="step6">
+
+    <div class="card">
+
+      <div class="eyebrow">little game · 4 of 4</div>
+
+      <h2>A Song for a Softer Moment 🎧</h2>
+
+      <p class="center">
+
+        Sometimes a song says the gentle things we don't know how to say.
+
+        Here's one for you.
+
+      </p>
+
+      <div class="song-card">
+
+        <div class="big-emoji">🎶</div>
+
+        <div class="song-title">Dandelions</div>
+
+        <p class="center soft">Ruth B.</p>
+
+        <p class="center soft">
+
+          Take your time. Listen whenever you feel like it.
+
+        </p>
+
+      </div>
+
+      <a
+
+        class="song-link"
+
+        href="https://www.youtube.com/results?search_query=Ruth+B+Dandelions+official"
+
+        target="_blank"
+
+        rel="noopener noreferrer"
+
+      >▶ Find “Dandelions” on YouTube</a>
+
+      <p class="center soft">
+
+        YouTube opens separately so you can choose the song video you prefer.
+
+        Internet connection is needed.
+
+      </p>
+
+      <button class="btn" id="songNext" type="button">
+
+        I'm ready for the final surprise 💜
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- STEP 7: LETTER -->
+
+  <section class="screen" id="step7">
+
+    <div class="card">
+
+      <div class="eyebrow">one last little thing</div>
+
+      <h1>For You, Su Su San 💜</h1>
+
+      <div class="letter">
+
+        <p>Hey Su Su San, 🌷</p>
+
+        <p>
+
+          I hope life is a little kinder to you than it has been lately.
+
+          And when it isn't, I hope you remember that you don't have to
+
+          carry every difficult feeling all by yourself.
+
+        </p>
+
+        <p>
+
+          You deserve peaceful days, genuine smiles, good people,
+
+          and the kind of happiness that doesn't ask you to hide who you are.
+
+          I hope you get to do the things you love and slowly find your way
+
+          toward everything your heart has been wishing for.
+
+        </p>
+
+        <p>
+
+          Thank you for being someone with your own little way of making
+
+          moments memorable. Even the smallest things about a person can
+
+          mean more than they realise.
+
+        </p>
+
+        <p>
+
+          On the days you feel proud of yourself, celebrate.
+
+          On the days you feel tired, rest.
+
+          And on the days when everything feels a bit too much,
+
+          please be gentle with yourself.
+
+        </p>
+
+        <p>
+
+          I hope you're always surrounded by people who care about you,
+
+          support you, and remind you that you matter.
+
+          I will always wish good things for you, too. 💜
+
+        </p>
+
+        <p>
+
+          You don't have to earn your place in this world by being useful,
+
+          cheerful, or strong. You deserve kindness simply because you're you.
+
+        </p>
+
+        <p>
+
+          So here's your tiny reminder: take a breath, drink some water,
+
+          relax your shoulders, and give yourself a little credit for making
+
+          it through everything you've faced.
+
+        </p>
+
+        <p>
+
+          I hope this small corner of the internet made you smile,
+
+          even if it was just for a moment.
+
+        </p>
+
+        <p>
+
+          Take care of yourself, okay? You deserve that kind of care, too.
+
+        </p>
+
+        <p>With lots of warmth and a little lavender magic, 🪻<br>
+
+        Someone who wishes you well.</p>
+
+      </div>
+
+      <button class="btn" id="hugBtn" type="button">
+
+        One gentle virtual hug? 🫂
+
+      </button>
+
+      <div id="hug" aria-live="polite">
+
+        🫂💜🌷<br>
+
+        <strong>A big, gentle virtual hug for you.</strong>
+
+        <p class="soft">
+
+          No need to say anything. Just take a moment for yourself.
+
+          You made it to the end, and I'm glad you did.
+
+        </p>
+
+      </div>
+
+      <button class="btn secondary" id="finishBtn" type="button">
+
+        Read this little reminder again ✨
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <div class="footer">made with care, just for this little moment 💜</div>
+
+</main>
+
+<script>
+
+(function () {
+
+  "use strict";
+
+  var currentStep = 1;
+
+  var totalSteps = 7;
+
+  function byId(id) {
+
+    return document.getElementById(id);
+
+  }
+
+  function go(step) {
+
+    var screens = document.querySelectorAll(".screen");
+
+    screens.forEach(function (screen) {
+
+      screen.classList.remove("active");
+
+    });
+
+    var target = byId("step" + step);
+
+    if (!target) return;
+
+    target.classList.add("active");
+
+    currentStep = step;
+
+    byId("progress").style.width =
+
+      (((step - 1) / (totalSteps - 1)) * 100) + "%";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  }
+
+  // STEP 1: Name gate — trims spaces and ignores capitalization.
+
+  byId("nameForm").addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    var input = byId("name");
+
+    var error = byId("nameError");
+
+    var typedName = input.value.trim().replace(/\s+/g, " ").toLowerCase();
+
+    if (typedName === "su su san") {
+
+      error.textContent = "";
+
+      go(2);
+
+    } else {
+
+      error.textContent = "Please enter the name: Su Su San 💜";
+
+      input.focus();
+
+    }
+
+  });
+
+  // STEP 2
+
+  byId("startBtn").addEventListener("click", function () {
+
+    startQuiz();
+
+    go(3);
+
+  });
+
+  // STEP 3: Quiz
+
+  var questions = [
+
+    {
+
+      q: "If you could have a perfect little break, what would you choose?",
+
+      a: [
+
+        "A quiet day with no pressure 🌿",
+
+        "A fun day with people I like 💗",
+
+        "A cozy evening with music 🎧",
+
+        "Honestly, all three please ✨"
+
+      ],
+
+      message: "There isn't one perfect way to rest. Choose what feels good for you."
+
+    },
+
+    {
+
+      q: "What kind of message would cheer you up?",
+
+      a: [
+
+        "“I'm here if you need me.” 💜",
+
+        "A silly joke that makes me laugh 😂",
+
+        "A long, thoughtful message 💌",
+
+        "A cute photo or a song 🌷"
+
+      ],
+
+      message: "Sometimes a small, sincere thing can make a difficult day feel softer."
+
+    },
+
+    {
+
+      q: "When life feels overwhelming, what might help?",
+
+      a: [
+
+        "Taking a little rest ☁️",
+
+        "Talking to someone I trust 🫂",
+
+        "Listening to music 🎶",
+
+        "Having some quiet time 🌙"
+
+      ],
+
+      message: "It's okay to take things one small step at a time."
+
+    },
+
+    {
+
+      q: "Last one! What do you deserve more of?",
+
+      a: [
+
+        "Peace and rest 🌸",
+
+        "Love and kindness 💗",
+
+        "Laughter and happy moments ☀️",
+
+        "All of the above, obviously! 💜"
+
+      ],
+
+      message: "Correct answer: ALL OF THEM. And no, that's not too much to ask."
+
+    }
+
+  ];
+
+  var questionIndex = 0;
+
+  var answered = false;
+
+  function startQuiz() {
+
+    questionIndex = 0;
+
+    drawQuestion();
+
+  }
+
+  function drawQuestion() {
+
+    answered = false;
+
+    var question = questions[questionIndex];
+
+    byId("questionCount").textContent =
+
+      "Question " + (questionIndex + 1) + " of " + questions.length;
+
+    byId("questionText").textContent = question.q;
+
+    byId("answers").innerHTML = "";
+
+    byId("quizFeedback").hidden = true;
+
+    byId("quizNext").hidden = true;
+
+    question.a.forEach(function (answer) {
+
+      var button = document.createElement("button");
+
+      button.type = "button";
+
+      button.className = "choice";
+
+      button.textContent = answer;
+
+      button.addEventListener("click", function () {
+
+        if (answered) return;
+
+        answered = true;
+
+        var choices = byId("answers").querySelectorAll("button");
+
+        choices.forEach(function (choice) {
+
+          choice.disabled = true;
+
+        });
+
+        button.classList.add("selected");
+
+        byId("quizFeedback").textContent = question.message;
+
+        byId("quizFeedback").hidden = false;
+
+        byId("quizNext").hidden = false;
+
+      });
+
+      byId("answers").appendChild(button);
+
+    });
+
+  }
+
+  byId("quizNext").addEventListener("click", function () {
+
+    if (!answered) return;
+
+    if (questionIndex < questions.length - 1) {
+
+      questionIndex++;
+
+      drawQuestion();
+
+    } else {
+
+      go(4);
+
+    }
+
+  });
+
+  // STEP 4: Mood picker
+
+  var moodMessages = {
+
+    tired: "It's okay to be tired. You don't have to finish everything today. Rest is allowed, too. 🫂",
+
+    okay: "Okay is a perfectly good place to be. You don't have to feel amazing every single day. 🌷",
+
+    sad: "I'm sorry things feel a little heavy. Your feelings are allowed to be here. Take today gently. 💜",
+
+    happy: "I'm happy you have a little sunshine in your day. I hope that feeling stays with you for a while. ☀️"
+
+  };
+
+  var chosenMood = "";
+
+  byId("moodChoices").querySelectorAll("button").forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+      chosenMood = button.getAttribute("data-mood");
+
+      byId("moodChoices").querySelectorAll("button").forEach(function (other) {
+
+        other.classList.remove("selected");
+
+      });
+
+      button.classList.add("selected");
+
+      byId("moodMessage").textContent = moodMessages[chosenMood];
+
+      byId("moodMessage").hidden = false;
+
+      byId("moodNext").hidden = false;
+
+    });
+
+  });
+
+  byId("moodNext").addEventListener("click", function () {
+
+    if (!chosenMood) return;
+
+    go(5);
+
+  });
+
+  // STEP 5: Compliment reveal
+
+  byId("revealCompliment").addEventListener("click", function () {
+
+    byId("compliment").hidden = false;
+
+    byId("revealCompliment").hidden = true;
+
+    byId("complimentNext").hidden = false;
+
+  });
+
+  byId("complimentNext").addEventListener("click", function () {
+
+    go(6);
+
+  });
+
+  // STEP 6: Song
+
+  byId("songNext").addEventListener("click", function () {
+
+    go(7);
+
+  });
+
+  // STEP 7: Virtual hug and replay letter
+
+  byId("hugBtn").addEventListener("click", function () {
+
+    byId("hug").classList.add("show");
+
+    byId("hugBtn").textContent = "A hug, whenever you need one 💜";
+
+  });
+
+  byId("finishBtn").addEventListener("click", function () {
+
+    byId("hug").classList.remove("show");
+
+    byId("hugBtn").textContent = "One gentle virtual hug? 🫂";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  });
+
+  // Decorative floating hearts
+
+  var decor = byId("decor");
+
+  var symbols = ["♡", "✦", "💜", "✿"];
+
+  for (var i = 0; i < 15; i++) {
+
+    var item = document.createElement("span");
+
+    item.className = "float-heart";
+
+    item.textContent = symbols[i % symbols.length];
+
+    item.style.left = (Math.random() * 100) + "%";
+
+    item.style.animationDuration = (10 + Math.random() * 13) + "s";
+
+    item.style.animationDelay = (-Math.random() * 18) + "s";
+
+    item.style.fontSize = (12 + Math.random() * 17) + "px";
+
+    decor.appendChild(item);
+
+  }
+
+  // Initial progress
+
+  byId("progress").style.width = "0%";
+
+})();
+
+</script>
+
+</body>
+
+</html>
